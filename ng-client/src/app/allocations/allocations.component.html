@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <br /><br /><br />
+    <nav [ngClass] = "'parent-menu'">
+	  <ul>
+		 <li><a routerLink="/" routerLinkActive="active">New Asset Allcoations</a></li>
+		 <li><a routerLink="/" routerLinkActive="active">Manage Existing Allocations</a></li>
+	  </ul>
+	</nav>
+	<div [ngClass] = "'parent-container'">
+	  <router-outlet></router-outlet>
+	</div>
+  </div>
+</div>

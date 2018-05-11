@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Eidt/Update Store Assets</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="todos" *ngIf="assetsList">
+        <table class="table">
+          <thead class="h">
+            <tr class="h">
+              <th class="h">Asset ID</th>
+              <th class="h">Category</th>
+              <th class="h">Date</th>
+              <th class="h">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="todo" *ngFor="let asset of assetsList">
+                <td>{{asset.assetId}}</td>
+                <td>{{asset.category}}</td>
+                <td>{{asset.date}}</td>
+                <td class="o">
+                  <button class="btn btn-danger" (click)="deleteAsset(asset)">
+                    <i  class="fa fa-trash"></i>
+                  </button>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

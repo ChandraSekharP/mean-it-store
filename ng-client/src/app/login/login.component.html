@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 welcome">
+      <h1>Welcome to IT Store Application</h1>
+      <h5>This application enables IT Administrators to manage Assets related to IT Store and
+          Assets allocated to users as well as the Assets installed or located at different places within the organization.
+      </h5>
+    </div>
+    <div class="col-12 login-form">
+      <form name="form" (ngSubmit)="loginForm.form.valid && login()" #loginForm="ngForm">
+        <h2>Registered User Login</h2>
+        <h6 class="text-danger text-right">User Name and Password fields mandatory</h6>
+        <div class="form-group">
+          <!-- <label for="username">User Name</label>
+          <input type="text" class="form-control" name="username" placeholder="User Name" [(ngModel)]="signin.username" #username="ngModel" required> -->
+          <input type="text" class="input-text" name="username" [(ngModel)]="signin.username" #username="ngModel" aria-label="User Name" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>User Name</label>
+          <div *ngIf="loginForm.submitted && !username.valid" class="text-danger">This field is either blank or has incorrect entry</div>
+        </div>
+        <div class="form-group">
+          <!-- <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="signin.password" #password="ngModel" required> -->
+          <input type="password" class="input-text" name="password" [(ngModel)]="signin.password" #password="ngModel" aria-label="Password" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Password</label>
+          <div *ngIf="loginForm.submitted && !password.valid" class="text-danger">This field is either blank or has incorrect entry</div>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn btn-success">Login Me</button>
+        </div>
+        <br /><h6>If you don't have an account, please <a routerLink="/Register"><strong>create one now</strong></a>.</h6>
+      </form>
+    </div>
+  </div>
+</div>

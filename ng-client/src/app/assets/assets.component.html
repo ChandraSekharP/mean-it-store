@@ -1,0 +1,28 @@
+
+    <!-- <nav [ngClass] = "'parent-menu'">
+	     <ul>
+		       <li><a [routerLink]="['/Assets/AddAssets']" routerLinkActive="active">Add Assets to Store</a></li>
+		       <li><a [routerLink]="['/Assets/GetAssets']" routerLinkActive="active">Get Assets from Store</a></li>
+           <li><a [routerLink]="['/Assets/EditAssets']" routerLinkActive="active">Edit/Update Store Assets</a></li>
+           <li><a [routerLink]="['/Assets/DeleteAssets']" routerLinkActive="active">Delete Assets from Store</a></li>
+       </ul>
+	  </nav> -->
+    <!-- <div *ngFor="let asset of assetsList">
+      {{asset.category}}
+    </div> -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="sidebar col-sm-2">
+          <p>Use below menu options to add new assets to Store or manage existing assets</p>
+          <ul>
+            <li><a [routerLink]="['/Assets/AddAssets']" routerLinkActive="active"><i class="fa fa-plus" aria-hidden="true"></i>Add Assets to Store</a></li>
+            <li><a [routerLink]="['/Assets/GetAssets']" routerLinkActive="active"><i class="fa fa-bars" aria-hidden="true"></i>Get Assets from Store</a></li>
+            <li><a [routerLink]="['/Assets/EditAssets']" routerLinkActive="active"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit/Update Store Assets</a></li>
+            <li><a [routerLink]="['/Assets/DeleteAssets']" routerLinkActive="active"><i class="fa fa-times" aria-hidden="true"></i>Delete Assets from Store</a></li>
+          </ul>
+        </div>
+        <div class="page-content col-sm-10">
+           <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,123 @@
+header {
+  padding: 10px 20px;
+  border: 1px solid #03616f;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px -1px #03616f;
+   @media (max-width:575px) {
+     padding: 0;
+   }
+
+   h1 {
+     margin: 0;
+     padding: 5px 0;
+     font-size: 1.5rem;
+     color: #008cba;
+     text-transform: uppercase;
+     @media (max-width:575px) {
+       padding: 20px;
+       font-size: 1.25rem;
+       text-align: left;
+     }
+   }
+
+   nav {
+
+   }
+}
+.parent-menu {
+  @media (max-width:575px) {
+    padding: 0 10px;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+      float: left;
+
+      a {
+        display: block;
+        height: 60px;
+        line-height: 60px;
+        font-family: Arial;
+        font-size: 14px;
+        color: #3a3a3a;
+        text-align: center;
+        padding: 0 15px;
+        text-decoration: none;
+
+        &:hover:not(.active) {
+            color: #f1f1f1;
+            background-color: #52bad5;
+        }
+
+        @media (max-width:575px) {
+          display: block;
+          height: 20px;
+          line-height: 20px;
+          padding: 0 15px 0 0;
+          font-family: Arial;
+          font-size: 12px;
+          color: #3a3a3a;
+          text-align: left;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .active {
+      color: #f1f1f1;
+      background-color: #52bad5;
+  }
+}
+
+
+.user-profile {
+  position: relative;
+  width: 8%;
+  margin: 0;
+  color: #fff;
+  a {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    color: #01be86;
+    @media (max-width:575px) {
+      margin: 10px;
+      padding: 10px;
+      font-size: 12px;
+    }
+  }
+}
+
+/* .parent-container {
+    padding-left: 10px;
+}
+.child-container {
+    padding-left: 10px;
+}
+.sub-child-container {
+    padding-left: 10px;
+}
+.child-menu  {
+    padding-left: 25px;
+}
+.child-menu .active{
+    color: #52bad5;
+}
+.sub-child-menu {
+    background-color: #f1f1f1;
+    width: 275px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.sub-child-menu .active{
+    color: #4CAF50;
+}
+button {
+    background-color: #008CBA;
+    color: white;
+} */

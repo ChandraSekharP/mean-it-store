@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <h1>Add New Assets to Store</h1>
+  <form *ngIf="visibleAddAssetForm" (ngSubmit)="addAsset()" #assetForm="ngForm" class="col-sm-12 form-add-assets">
+      <div class="row">
+        <div class="form-group col-sm-3 offset-sm-1">
+          <!-- <span>
+            <label name="assetId">Asset ID</label> {{ counterValue }} <generator [countAssetID]="counterValue" (updateID)="counterUpdate($event)"></generator>
+          </span>
+          <span class="highlight"></span>
+          <span class="bar"></span>-->
+          <input type="text" class="input-text" [ngModel]="newAsset.assetID" (ngModelChange)="newAsset.assetID=$randomString" name="assetId" aria-label="Asset ID" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Asset ID</label>
+          <!-- <span>{{randomString()}}</span> -->
+        </div>
+        <div class="form-group col-sm-3 offset-sm-3">
+          <select name="category" [(ngModel)]="newAsset.category" class="form-control">
+            <option value="" hidden>Choose Category</option>
+            <option *ngFor="let category of categories" [value]="category.value">{{category.display}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-3 offset-sm-1">
+          <select name="make" [(ngModel)]="newAsset.make" class="form-control">
+            <option value="" hidden>Choose Manufacturer</option>
+            <option *ngFor="let make of makes" [value]="make.value">{{make.display}}</option>
+          </select>
+        </div>
+        <div class="form-group col-sm-3 offset-sm-3">
+          <input type="text" class="input-text" [(ngModel)]="newAsset.primary" name="primary" aria-label="Primary Feature" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Primary Feature</label>
+        </div>
+        <!-- <div class="select-dropdown animated zoom">
+          <input type="radio" name="option" name="category" [(ngModel)]="newAsset.category">
+          <i class="toggle fa fa-caret-down" aria-hidden="true"></i>
+          <i class="toggle fa fa-caret-up" aria-hidden="true"></i>
+          <span class="placeholder">Choose Category</span>
+          <label class="option" *ngFor="let category of categories">
+              <input type="radio" name="option" [value]="category.value">
+              <span class="title animated fadeIn"><i class="icon icon-speedometer"></i>{{category.display}}</span>
+          </label>
+      </div> -->
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-success">Save Asset to Store</button>
+    </div>
+  </form>
+  <div class="alert alert-success alert-dismissible" *ngIf="visibleSuccessMessage">
+    <button class="close" data-dismiss="alert" aria-label="close" (click)="hideSuccessMessage()">&times;</button>
+    <div class="text-center">
+      <br /><h5>Asset <u>successfully added</u> to Store!</h5><br />
+      <h6>Close this success message to add more assets to Store!!</h6><br />
+    </div>
+  </div>
+  <div class="alert alert-danger alert-dismissible" *ngIf="visibleErrorMessage">
+    <button class="close" data-dismiss="alert" aria-label="close" (click)="hideErrorMessage()">&times;</button>
+    <div class="text-center">
+      <br /><h5>Asset <u>not added</u> to Store!</h5><br />
+      <h6>Close this error message and try adding the asset again to Store!!</h6><br />
+    </div>
+  </div>
+</div>

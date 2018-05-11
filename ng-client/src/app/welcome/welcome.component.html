@@ -1,0 +1,160 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-sm-6 welcome">
+      <h1>Welcome to IT Store Application</h1>
+      <h5>This authentication based application enables IT Administrators to manage Assets related to IT Store and
+          Assets allocated to users as well as the Assets installed or located at different places within the organization.
+      </h5>
+      <h5>This authentication based application enables IT Administrators to manage Assets related to IT Store and
+          Assets allocated to users as well as the Assets installed or located at different places within the organization.
+      </h5>
+      <div class="container-fluid login-register">
+        <div class="row">
+          <div class="col-12 login-form">
+            <div class="form-container">
+              <h2>Registered User Login</h2>
+              <form name="form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+                <div class="row form-group">
+                  <div class="col-12 col-sm-6">
+                    <!--<input type="text" class="input-text" name="loginName" [(ngModel)]="signin.loginName" #username="ngModel" aria-label="Login Name" required />-->
+                    <input type="text"  class="input-text" name="inputLoginName" formControlName="loginName" aria-label="LoginName" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>
+                      Login Name
+                      <span *ngIf="loginForm.controls['loginName'].touched && loginForm.controls['loginName'].valid">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                    </label>
+                  </div>
+                  <!-- <div *ngIf="loginForm.submitted && !loginName.valid" class="text-danger">This field is either blank or has incorrect entry</div> -->
+                  <p class="col-12 col-sm-6">
+                    <span *ngIf="!loginNameLogin.touched" class="text-info">Mandatory. Only characters allowed.</span>
+                    <span *ngIf="loginForm.controls['loginName'].invalid && loginForm.controls['loginName'].touched" class="text-danger">
+                      <span *ngIf="loginForm.controls['loginName'].errors?.required"><i class="fa fa-remove" aria-hidden="true"></i>This field is either blank or has incorrect entry</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="row form-group">
+                  <div class="col-12 col-sm-6">
+                    <!-- <input type="password" class="input-text" name="password" [(ngModel)]="signin.password" #password="ngModel" aria-label="Password" required /> -->
+                    <input type="password" class="input-text" name="inputPassword" formControlName="password" aria-label="Password" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Password</label>
+                    <span class="tick-mark" *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].valid">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <p class="col-12 col-sm-6">
+                    <span *ngIf="!loginForm.controls['password'].touched" class="text-info">Mandatory. Maximum length 6 characters.</span>
+                    <span *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="text-danger">
+                      <span *ngIf="loginForm.controls['password'].errors?.required"><i class="fa fa-remove" aria-hidden="true"></i>This field is either blank or has incorrect entry</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="row">
+                  <button type="submit" [disabled]="!loginForm.valid" class="col-4 btn btn-success">Log In Me</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 login-register">
+      <div class="register-form">
+        <div class="form-container">
+          <h2>New User Registration</h2>
+          <form name="form" [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="container-fluid">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <input type="text" class="input-text" name="inputUsername" formControlName="username" aria-label="User Name" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>User Name</label>
+                    <span class="tick-mark" *ngIf="username.touched && username.valid">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <p class="col-12 col-sm-6">
+                    <span *ngIf="!username.touched" class="text-info">Mandatory. Only characters allowed.</span>
+                    <span *ngIf="username.invalid && username.touched" class="text-danger">
+                      <span *ngIf="username.errors?.required"><i class="fa fa-remove" aria-hidden="true"></i>Mandatory. Only alphabets allowed.</span>
+                      <span *ngIf="username.errors?.pattern"><i class="fa fa-remove" aria-hidden="true"></i>Invalid characters found.</span>
+                      <span *ngIf="username.errors?.maxlength"><i class="fa fa-remove" aria-hidden="true"></i>Maximum length 5 characters.</span>
+                    </span>
+                  </p>
+                </div>
+      	   	  </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <input type="text" class="input-text" name="inputLoginName" formControlName="loginName" aria-label="Login Name" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Login Name</label>
+                    <span class="tick-mark" *ngIf="registerForm.controls['loginName'].touched && registerForm.controls['loginName'].valid">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <p class="col-12 col-sm-6">
+                    <span *ngIf="!registerForm.controls['loginName'].touched" class="text-info">Mandatory. Only characters and numerics allowed.</span>
+                    <span *ngIf="registerForm.controls['loginName'].invalid && registerForm.controls['loginName'].touched" class="text-danger">
+                      <span *ngIf="registerForm.controls['loginName'].errors?.required"><i class="fa fa-remove" aria-hidden="true"></i>This Login Name already exists. This field cannot be blank</span>
+                    </span>
+                  </p>
+                </div>
+        	   	</div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <input type="password" class="input-text" name="inputPassword" formControlName="password" aria-label="Password" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>
+                      Password
+                      <span *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].valid">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                    </label>
+                  </div>
+                  <p class="col-12 col-sm-6">
+                    <span *ngIf="!registerForm.controls['password'].touched" class="text-info">Mandatory. Maximum length 6 characters.</span>
+                    <span *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched" class="text-danger">
+                      <span *ngIf="registerForm.controls['password'].errors?.required"><i class="fa fa-remove" aria-hidden="true"></i>Mandatory. Maximum length 6 characters.</span>
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <input type="password" class="input-text" name="retypePassword" formControlName="passwordRetype" aria-label="Re-type Password" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>
+                      Re-type Password
+                      <span *ngIf="(passwordRetype.touched && passwordRetype.valid)"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    </label>
+                  </div>
+                  <p class="col-12 col-sm-6">
+                    <span *ngIf="!registerForm.controls['passwordRetype'].touched" class="text-info">Mandatory. Must match with Password field.</span>
+                    <span *ngIf="(passwordRetype.touched && passwordRetype.errors) || registerForm.errors?.mismatch" class="text-danger"><i class="fa fa-remove" aria-hidden="true"></i>Did not match with Password field.</span>
+                  </p>
+                </div>
+              </div>
+              <!--- Buttons Block -->
+              <div class="row">
+                <button type="submit" [disabled]="!registerForm.valid" class="col-4 btn btn-primary">Register Me</button>
+                <button type="reset" class="col-4 btn btn-default">Not Now!</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

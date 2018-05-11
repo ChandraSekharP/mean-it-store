@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>Eidt/Update Store Assets</h1>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="todos" *ngIf="assetsList">
+        <table class="table-assets-list">
+          <thead>
+            <tr >
+              <th>Asset ID</th>
+              <th>Category</th>
+              <th>Make</th>
+              <th>Primary Feature</th>
+              <th>Date</th>
+              <th>Edit / Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="todo" (dblclick)="editAsset(asset)" *ngFor="let asset of assetsList; let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+              <ng-container *ngIf="!editAssets.includes(asset); else editAsset1">
+                <td>{{asset.assetId}}</td>
+                <td>{{asset.category}}</td>
+                <td>{{asset.make}}</td>
+                <td>{{asset.primary}}</td>
+                <td>{{asset.date | date}}</td>
+              </ng-container>
+              <ng-template #editAsset1>
+                  <td><input type="text" name="assetId" id="assetId" (keypress)="submitAsset($event, asset)" [(ngModel)]="asset.assetId" placeholder="Asset ID" class="input-text"></td>
+                  <td>
+                    <!-- <input type="text" name="category" id="category" (keypress)="submitAsset($event, asset)" [(ngModel)]="asset.category" placeholder="Category"
+                      class="form-control"> -->
+                      <select name="category" class="form-control" [(ngModel)]="asset.category">
+                        <option *ngFor="let category of categories" [value]="category.value">{{category.display}}</option>
+                      </select>
+                  </td>
+                  <td>
+                    <!-- <input type="text" name="category" id="category" (keypress)="submitAsset($event, asset)" [(ngModel)]="asset.category" placeholder="Category"
+                      class="form-control"> -->
+                      <select name="category" class="form-control" [(ngModel)]="asset.make">
+                        <option *ngFor="let make of makes" [value]="make.value">{{make.display}}</option>
+                      </select>
+                  </td>
+                  <td><input type="text" name="primary" id="primary" (keypress)="submitAsset($event, asset)" [(ngModel)]="asset.primary" placeholder="Primary Feature" class="input-text"></td>
+                  <td>{{asset.date | date}}</td>
+              </ng-template>
+              <td>
+                <!-- <button class="btn btn-success" (click)="doneAsset(asset)">
+                  <i  class="fa fa-check"></i>
+                </button> -->
+                <button class="btn btn-info" (click)="editAsset(asset)"><i class="fa fa-pencil"></i> Edit Asset</button>
+                <!-- <button class="btn btn-danger" (click)="deleteAsset(asset)">
+                    <i  class="fa fa-trash"></i>
+                  </button> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

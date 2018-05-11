@@ -1,0 +1,124 @@
+.welcome {
+  margin-top: 1%;
+  text-align: center;
+  h1, h5 {
+    margin: 1% 0;
+    padding: 0 20%;
+    @media (max-width:575px) {
+      margin: 5% 0;
+      padding: 0 5%;
+      font-size: 1.25rem;
+    }
+  }
+  h5 {
+    padding: 0 27%;
+    line-height: 2;
+    text-align: justify;
+    @media (max-width:575px) {
+      padding: 0 5%;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+  }
+}
+
+.login-form {
+  width: 30%;
+  padding: 2% 35%;
+  @media (max-width:575px) {
+    width: 90%;
+    padding: 2% 5%;
+  }
+  form {
+    padding: 7%;
+    text-align: left;
+    //background-color: rgba(152, 238, 217, 0.5);
+    background-color: rgba(82, 186, 213, 0.5);
+    h2 {
+      @media (max-width:575px) {
+        font-size: 1.5rem;
+      }
+    }
+    h6 {
+      @media (max-width:575px) {
+        font-size: 12px;
+      }
+    }
+    .text-danger {
+      font-size: 11px;
+    }
+    button {
+      padding: 7px 20px;
+    }
+  }
+
+  .form-group {
+    position:relative;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    .input-text {
+      display:block;
+      width: 100%;
+      padding:5px 10px 0px 5px;
+      background-color: transparent;
+      border-width: 0;
+      border-radius: 0;
+      border-bottom:1px solid #fff;
+      &:focus, &:valid {  //active state
+        outline: none;
+        box-shadow: none;
+        &~label {
+          top: -15px;
+          font-size: 11px;
+          opacity: 1;
+          color: #333;
+        }
+        &~.bar:before, &~.bar:after {
+          width:50%;
+        }
+      }
+    }
+
+    label {
+      color: #333;
+      font-size:12px;
+      font-weight:normal;
+      text-align: left;
+      position:absolute;
+      pointer-events:none;
+      left:5px;
+      top:0px;
+      transition:0.2s ease all;
+      -moz-transition:0.2s ease all;
+      -webkit-transition:0.2s ease all;
+    }
+
+    .bar {
+      display:block;
+      position:relative;
+      &:before {
+        left:50%;
+      }
+      &:after {
+        right:50%;
+      }
+      &:before, &:after {
+        content:'';
+        height:1px;
+        width:0;
+        bottom:1px;
+        position:absolute;
+        background: #333;
+        transition:0.2s ease all;
+        -moz-transition:0.2s ease all;
+        -webkit-transition:0.2s ease all;
+      }
+    }
+
+    .text-danger {
+      padding-top: 4px;
+    }
+  }
+
+}

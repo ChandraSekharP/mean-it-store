@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>List of all Store Assets</h1>
+      <!-- {{key}} is properly returning column names
+      <div class ="test" *ngFor="let key of assetObj | keys">
+        {{key}}
+      <div>
+      -->
+      <form>
+        <!-- <table class="table-assets-list" on-mouseleave="hideSortIcons()"> -->
+        <table class="table-assets-list">
+          <thead>
+            <tr>
+              <!-- <th class="pointer" (click)="sortTable('assetId')" sort-direction="1" on-mouseover="showSortIcons()"> -->
+              <th (click)="sortColumn='assetId'; sortReverse = !sortReverse">
+                Asset ID
+                <span>
+                  <i *ngIf="sortColumn == 'assetId' && sortReverse" class="fa fa-caret-down"></i>
+                  <i *ngIf="sortColumn == 'assetId' && !sortReverse" class="fa fa-caret-up"></i>
+                </span>
+              </th>
+              <th (click)="sortColumn='category'; sortReverse = !sortReverse">
+                Category
+                <span>
+                  <i *ngIf="sortColumn == 'category' && sortReverse" class="fa fa-caret-down"></i>
+                  <i *ngIf="sortColumn == 'category' && !sortReverse" class="fa fa-caret-up"></i>
+                </span>
+              </th>
+              <th (click)="sortColumn='make'; sortReverse = !sortReverse">
+                Make
+                <span>
+                  <i *ngIf="sortColumn == 'make' && sortReverse" class="fa fa-caret-down"></i>
+                  <i *ngIf="sortColumn == 'make' && !sortReverse" class="fa fa-caret-up"></i>
+                </span>
+              </th>
+              <th (click)="sortColumn='primary'; sortReverse = !sortReverse">
+                Primary
+                <span>
+                  <i *ngIf="sortColumn == 'primary' && sortReverse" class="fa fa-caret-down"></i>
+                  <i *ngIf="sortColumn == 'primary' && !sortReverse" class="fa fa-caret-up"></i>
+                </span>
+              </th>
+              <th class="pointer">
+                Date
+                <!-- <span>
+                  <i class="fa fa-chevron-up" *ngIf="order == 1" ></i>
+                  <i class="fa fa-chevron-down" *ngIf="order == -1"></i>
+                </span> -->
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="number" name="assetId" [(ngModel)]="filter.assetId" placeholder="Asset ID"></td>
+              <td><input type="text" name="category" [(ngModel)]="filter.category" placeholder="Category"></td>
+              <td><input type="text" name="make" [(ngModel)]="filter.make" placeholder="Make"></td>
+              <td><input type="text" name="primary" [(ngModel)]="filter.primary" placeholder="Primary"></td>
+              <td></td>
+            </tr>
+            <tr *ngFor="let asset of assetsList | storeassetfilter:filter | orderBy:sortColumn:sortReverse">
+              <td>{{ asset.assetId }}</td>
+              <td>{{ asset.category }}</td>
+              <td>{{ asset.make }}</td>
+              <td>{{ asset.primary }}</td>
+              <td>{{ asset.date | date: 'longDate'}}</td>
+              <!-- <td><a [routerLink]="['/book-details', book._id]">Show Detail</a></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
